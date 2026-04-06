@@ -1,107 +1,43 @@
-# 📊 Superstore Data Analysis: Impact of Discount on Profitability
+🏪 Global Superstore Profitability Analysis
 
-## 🔍 Project Overview
-This project analyzes the impact of discounting on profitability using the Global Superstore dataset. The objective is to identify loss-driving factors and evaluate whether losses are caused by discount strategies or product-level pricing issues.
+Tools: MySQL, Excel, Pivot Tables
+Dataset: 51,290 orders from 147 countries (2012–2015)
+Goal: Find why a high-revenue global store was losing money.
 
----
+📌 Business Problem
+The Global Superstore had strong sales but inconsistent profitability. The goal was to identify which products, discount levels, and regions were driving losses, and measure the extent of the loss.
 
-## 🎯 Business Problem
-Despite high sales volume, the business is experiencing significant losses.  
-This analysis aims to:
-- Identify the relationship between discount and profit
-- Detect the discount threshold where losses begin
-- Find products and regions responsible for losses
-- Recommend data-driven pricing and discount strategies
+🔍 Key Findings
+84.83% of all losses were driven by discounts of 40% or more.
+Tables were the highest loss category, with approximately −$1.11L under high-discount conditions.
+Machines were the second-highest loss contributor, with around −$72K.
+Technology was the highest revenue-generating category (around $827K).
+The Consumer segment accounted for 51% of all orders.
 
----
+🛠️ SQL Techniques Used
+CTEs (WITH clause) were used to cleanly isolate discount tiers.
+CASE WHEN logic was applied to classify orders into discount bands (0–10%, 10–20%, 20–40%, 40%+).
+GROUP BY with SUM(Profit) was used to aggregate losses by sub-category and discount band.
+ORDER BY was used to rank sub-categories based on total loss.
+JOINs were used to connect product and order tables for detailed analysis.
 
-## 📂 Dataset
-- **File:** `Global_Superstore2.csv`
-- Contains sales transactions including:
-  - Sales
-  - Profit
-  - Discount
-  - Category & Sub-category
-  - Region
-  - Order details
+📊 Excel Dashboard
+A multi-sheet Excel workbook was created with the following analyses:
 
----
+Revenue by Segment (Consumer, Corporate, Home Office)
+Revenue by Category (Furniture, Office Supplies, Technology)
+Revenue by Region (West, East, Central, South)
+A lookup tool for segment-level drill-down
+Above-Average sales flag and Value-Tier classification columns
 
-## 🛠️ Tools Used
-- SQL (MySQL)
-- Data Analysis & Aggregation
-- Business Problem Solving
+💡 Business Recommendation
 
----
+Cap discounts at 30% for Tables and Machines.
+Flag sub-categories with negative margins for pricing review.
+Estimated margin recovery of ₹80,000–90,000 without significant volume loss.
 
-## 🔑 Key Analysis Steps
-
-1. **Overall Performance Analysis**
-   - Sales, profit, and margin by category
-
-2. **Discount Impact Analysis**
-   - Profitability across discount ranges
-
-3. **Threshold Identification**
-   - Identified critical discount tipping point (40%)
-
-4. **Product-Level Analysis**
-   - Identified loss-making products and categories
-
-5. **Regional Analysis**
-   - Compared high-discount impact across regions
-
-6. **Deep Dive Analysis**
-   - Detailed breakdown for high-loss regions (Central)
-
----
-
-## 📊 Key Insights
-
-- 📉 **84.83% of total losses come from discounts ≥ 40%**, making it the critical threshold
-- ⚠️ High-margin products (Machines, Phones) turn loss-making at higher discount levels
-- 🪑 Furniture products (Tables) show low margins and become unprofitable even at moderate discounts
-- 📊 Losses increase significantly as discount levels rise (loss amplification effect)
-
----
-
-## 💡 Business Recommendations
-
-- ✅ **Cap discounts**
-  - 20% for low-margin products (e.g., Tables)
-  - 40% for high-margin products (e.g., Machines, Phones)
-
-- ✅ **Optimize product strategy**
-  - Bundle weak products (e.g., Tables + Bookcases)
-  - Avoid aggressive discounting on low-margin items
-
-- ✅ **Pricing Optimization**
-  - Re-evaluate cost and pricing for consistently loss-making products
-
----
-
-## 📁 Project Files
-
-- `super_store_analysis.sql` → Complete SQL analysis
-- `Global_Superstore2.csv` → Dataset
-- `Data_Analysis.docx` → Business insights and summary
-
----
-
-## 🚀 Key Learning Outcomes
-
-- Applied SQL for real-world business problem solving  
-- Identified profitability drivers using data  
-- Developed structured analytical thinking  
-- Improved business storytelling and decision-making  
-
----
-
-## 📌 Conclusion
-
-This analysis highlights that losses are not random but driven by excessive discounting and product-level inefficiencies. A targeted discount and pricing strategy is required to improve profitability.
-
----
-
-## 👤 Author
-- Aspiring Data Analyst with focus on SQL, business analysis, and data-driven decision making
+📁 Files in This Repo
+Global_Superstore2.csv – Raw dataset (51,290 rows)
+queries.sql – All SQL queries used
+Analysis.xlsx – Excel pivot analysis and dashboard
+README.md – Documentation
