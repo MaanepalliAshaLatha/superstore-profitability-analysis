@@ -28,7 +28,8 @@ Despite strong revenue, the business was experiencing consistent profit losses w
 • Regional performance differences identified for better decision-making<br><br>
 
 <b>📁 Repository Structure</b><br>
-• data/ → Raw dataset<br>
-• sql/ → SQL queries<br>
-• dashboard/ → Excel dashboard<br>
+• Data_Analysis.docx<br>
+• Global_Superstore2.csv<br>
+• queries.sql<br>
+• dashboard.png<br>
 • README.md → Documentation<br>
